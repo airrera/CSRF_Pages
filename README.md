@@ -21,7 +21,7 @@ Because is not considered a 'simple' request, the browser will initiate a prefli
 
 3 - No CORS misconfiguration but target is not checking the Content-type: 
 
-By using the option 'no-cors' in the fetch method (this only works with fetch) it will send the POST request but with "Content-type: text/plain;". 
+By using the option 'no-cors' in the fetch method (this only works with fetch) browser will send the POST request but with "Content-type: text/plain;". 
 
 ### References:
 
